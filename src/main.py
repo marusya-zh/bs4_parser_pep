@@ -140,6 +140,12 @@ def pep(session):
     results = header + peps_per_status + footer
 
     for key, status, url in keys_statuses_urls:
+        if key not in EXPECTED_STATUS.keys():
+            logging.info(
+                f'Неизвестный ключ статуса: {key}\n'
+                f'{url}'
+            )
+            continue
         if status not in EXPECTED_STATUS[key]:
             logging.info(
                 f'Несовпадающие статусы:\n'

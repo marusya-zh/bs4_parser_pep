@@ -31,10 +31,6 @@ def find_sibling(soup, search='next'):
         soup.find_next_sibling(),
         soup.find_previous_sibling()
     )[search == 'prev']
-    # if search == 'prev':
-    #     searched_tag = soup.find_previous_sibling()
-    # else:
-    #     searched_tag = soup.find_next_sibling()
     if searched_tag is None:
         error_msg = 'Не найден соседний одноуровневый тег.'
         logging.error(error_msg, stack_info=True)
